@@ -11,5 +11,10 @@ async function handleSignin() {
         method: 'POST',
         body: JSON.stringify(signupData)
     })
-    console.log(response)
+    console.log(response.status)
+    // response_json = await response.json()
+    // console.log(response_json)
+    if (response.status == 200) {
+        window.location.replace("http://127.0.0.1:5501/login.html")
+    }
 }

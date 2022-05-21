@@ -45,15 +45,18 @@ def sign_up():
     # data = loads(request.data)
     print(data.get("email"))
     print(data["password"])
-    # pw = data.get('password', None)
-    # hashed_password = hashlib.sha256(pw.encode('utf-8')).hexdigest()
+
+
+    pw = data.get('password', None)
+    hashed_password = hashlib.sha256(pw.encode('utf-8')).hexdigest()
 
     doc = {
         'email': data.get('email'),
-        'password': data.get('password')
+        'password': hashed_password
     }
-
+    print(doc)
     user = db.users.insert_one(doc)
+    print(doc)
     return jsonify({"message": "success"})
 
 
