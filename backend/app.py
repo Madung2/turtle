@@ -99,5 +99,11 @@ def get_user_info(user):
     return jsonify({"message": "success", "email": result["email"]})
 
 
+@app.route("/article", methods=["POST"])
+@authorize
+def post_article(user):
+    return jsonify({"message": "success"})
+
+
 if __name__ == "__main__":
     app.run("0.0.0.0", port=5002, debug=True)
